@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style: none !important;
+    font-family: 'Quicksand';
+}
+
+:root {
+    --active-color: #3bb77e;
+    --primary-color: #253d4e;
+    --grey-color: #7e7e7e;
+}
+
+.w-70 {
+    width: 70% !important;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+.active-color {
+    color: var(--active-color) !important;
+}
+
+.bg-color {
+    background-color: var(--active-color) !important;
+}
+
+.primary-color {
+    color: var(--primary-color) !important;
+}
+
+.grey-color {
+    color: var(--grey-color);
+}
+
+/* --------------------------Header start------------------------------ */
+.logo img {
+    width: 180px;
+}
+
+.icon .count {
+    background-color: #3BB77E;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    top: -5px !important;
+}
+
+.menu ul li a {
+    transition: all .3s ease 0s;
+}
+
+.menu ul li:hover a {
+    color: #3bb77e;
+    transition: all .3s ease 0s;
+}
+
+.header-bar {
+    background-image: linear-gradient(158deg, #f8c144 0%, #28404c 80%);
+}
+
+/* --------------------------Header end------------------------------ */
+/* --------------------------main banner start------------------------------ */
+.banner-1 {
+    background-image: url('../image/slider-3-min.png');
+    background-position: bottom center;
+    padding: 80px 50px 156px;
+    box-shadow: 2px 5px 38px -5px rgba(0, 0, 0, .07);
+    border-radius: 15px;
+}
+
+.banner-1 .title {
+    font-size: 3.75rem;
+    line-height: 4.35rem;
+}
+
+.widget-container {
+    padding: 7px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #0000007f;
+    border-radius: 15px;
+}
+
+.widget-content {
+    background-image: url('../image/banner-1.png');
+    background-size: cover;
+}
+
+.widget-content-2 {
+    background-image: url('../image/banner-3.png');
+    background-size: cover;
+}
+
+.widget-content .widget-dis {
+    background-color: #ffd55a;
+    top: 13%;
+    right: 7%;
+    width: 80px;
+    height: 80px;
+}
+
+/* --------------------------main banner end------------------------------ */
+/* --------------------------product start------------------------------ */
+.product-cart {
+    border-radius: 15px;
+    border: 1px solid var(--active-color);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.product-cart .product-img  {
+    border-radius: 15px;
+    padding: 25px 25px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-cart .product-img .img-2 {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1.5s cubic-bezier(0,0,.05,1);
+}
+
+.product-cart :hover .img-2 {
+    opacity: 1;
+    visibility: visible;
+    transform: scale3d(1.05,1.05,1.05) translateZ(0);
+    transition: all 1.5s cubic-bezier(0,0,.05,1);
+}
+
+.product-cart :hover .img-1 {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1.5s cubic-bezier(0,0,.05,1);
+}
+
+.product-action{
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 5px;
+    border: 1px solid var(--active-color);
+    transition: all .3s ease 0s;
+    opacity: 0;
+    z-index: 9;
+}
+.product-action li{
+    width: 40px;
+    height: 36px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    border-right: 1px solid var(--active-color);
+}
+
+.product-action li a:hover i{
+    color: #f8c144 !important;
+    transition: all 0.2s ease-out 0s;
+}
+.product-action li  i{
+    transition: all 0.2s ease-out 0s;
+}
+.product-cart :hover .product-action {
+    opacity: 1 !important;
+    transition: all 0.2s ease-out 0s;
+}
+.product-btn{
+    transition: all 0.2s ease-out 0s;
+}
+.product-btn:hover{
+    background-color: #f8c144 !important;
+    transition: all 0.2s ease-out 0s;
+}
+
+/* --------------------------product end------------------------------ */
+tbody tr td{
+    line-height: 86px !important;
+}
+.qty-action{
+    border-radius: 5px;
+    border: 1px solid var(--active-color);
+    transition: all .3s ease 0s;
+    opacity: 1;
+    z-index: 9;
+    margin-top: 20px;
+}
+.qty-action li{
+    width: 40px;
+    height: 36px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    border-right: 1px solid var(--active-color);
+}
+.qty-action li :hover i{
+    color: #f8c144 !important;
+    transition: all 0.2s ease-out 0s;
+}
+.qty-action li  i{
+    transition: all 0.2s ease-out 0s;
+}

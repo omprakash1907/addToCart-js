@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop-Nest</title>
+    <!-- fontAwsome -->
+    <!-- <link rel="stylesheet" href="assets/css/all.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font -->
+    <link rel="stylesheet" href="assets/webfont/stylesheet.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- boostrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <header id="header" class="py-3">
+
+    </header>
+    <section class="breadcrumb pb-3 " style="border-bottom: 1px solid var(--grey-color);">
+        <div class="container">
+            <ul class="p-0 m-0 ">
+                <li class="d-inline-block ">
+                    <a href="index.html" class="active-color fw-bold me-2">
+                        <i class="fa-solid fa-house-chimney"></i> Home >
+                    </a>
+                </li>
+                <li class="d-inline-block fw-bold grey-color">Shop</li>
+            </ul>
+        </div>
+    </section>
+    <section class="product container ">
+        <h2 class="primary-color fw-bold mb-4">Popular Products</h2>
+        <div id="p-data" class="d-flex align-items-center  justify-content-between flex-wrap col-12 ">
+
+        </div>
+    </section>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        const Product = [
+            {
+                id: 1,
+                catogery: "Baking material",
+                name: "Foster Farms Takeout Crispy Classic",
+                price: 28,
+                img1: "product-1.jpg",
+                img2: "product-2.jpg",
+            },
+            {
+                id: 2,
+                catogery: "Clothing & beauty",
+                name: "Encore Seafoods Stuffed Alaskan",
+                price: 25,
+                img1: "product-3.jpg",
+                img2: "product-4.jpg",
+            },
+            {
+                id: 3,
+                catogery: "Fresh Seafood",
+                name: "Gorton’s Beer Battered Fish Fillets",
+                price: 23,
+                img1: "product-5.jpg",
+                img2: "product-6.jpg",
+            },
+            {
+                id: 4,
+                catogery: "Baking material",
+                name: "Blue Almonds Lightly Salted Vegetables",
+                price: 29,
+                img1: "product-7.jpg",
+                img2: "product-8.jpg",
+            },
+            {
+                id: 5,
+                catogery: "Fresh Fruit",
+                name: "Frozen fruit strawberry, berries..",
+                price: 78,
+                img1: "product-9.jpg",
+                img2: "product-10.jpg",
+            },
+            {
+                id: 6,
+                catogery: "Deals Of The Day",
+                name: "Naturally Flavored Cinnamon Vanilla",
+                price: 51,
+                img1: "product-11.jpg",
+                img2: "product-12.jpg",
+            },
+            {
+                id: 7,
+                catogery: "Baking material",
+                name: "Seeds of Change Organic Red Rice",
+                price: 22,
+                img1: "product-13.jpg",
+                img2: "product-14.jpg",
+            },
+            {
+                id: 8,
+                catogery: "Fresh Fruit",
+                name: "Chobani Complete Vanilla Greek Yogurt",
+                price: 54,
+                img1: "product-15.jpg",
+                img2: "product-16.jpg",
+            },
+        ]
+
+        // -------------------------------------------product-list---------------------------------------------------//
+
+        var product = ""
+
+        for (var i = 0; i < Product.length; i++) {
+            product += `<div class="col-3 pe-4 pt-4 ">
+    <div class="product-cart position-relative overflow-hidden bg-white ">
+        <div class="product-img">
+            <a href="#" class="img-1">
+                <img src="assets/image/${Product[i].img1}" alt="product" class="img-fluid p-img">
+            </a>
+            <a href="#" class="img-2 position-absolute top-0 start-0">
+                <img src="assets/image/${Product[i].img2}" alt="product" class="img-fluid ">
+            </a>
+            <ul
+                class="product-action bg-white d-flex position-absolute top-50 start-50 overflow-hidden p-0 align-items-center ">
+                <li>
+                    <a href="#"><i class="fa-regular fa-eye active-color"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-cart-shopping active-color"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-regular fa-heart active-color"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="product-content" style="padding: 0 25px 25px;">
+            <div class="product-category">
+                <p style="font-size: 12px;" class="grey-color fw-bold mb-0">${Product[i].catogery}</p>
+                <h6 class="fw-bold primary-color p-name">${Product[i].name}</h6>
+                <span class="fs-3 fw-bold  active-color ">$</span><span class="price fs-3 fw-bold  active-color p-price">${Product[i].price}</span>
+            </div>
+            <button class="product-btn btn w-100 py-3  bg-color text-white fw-bold mt-2"><i class="fa-solid fa-cart-arrow-down"></i> Add to Cart</button>
+        </div>
+    </div>
+</div>`
+document.getElementById('p-data').innerHTML = product
+        }
+
+
+        //-----------------------------------------------AddToCart------------------------------------------------------//
+
+        const addCart = document.querySelectorAll('.product-btn')
+
+        for (let i = 0; i < addCart.length; i++) {
+            addCart[i].addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const parent = addCart[i].parentElement.parentElement // card
+                const name = parent.querySelector(".p-name").innerHTML;
+                const price = parent.querySelector(".p-price").innerHTML
+                const img = parent.querySelector(".p-img").src;
+
+                const addToCart = {
+                    name: name,
+                    price: price,
+                    image: img,
+                    qty: 1,
+                    total : 0,
+                };
+
+                var cart = JSON.parse(localStorage.getItem("cart"));
+
+                if (cart == null) {
+                    localStorage.setItem("cart", JSON.stringify([addToCart]))
+                } else {
+                    const itemExist  = cart.some((item) => {
+                        if (item.name  === name) {
+                            item.qty++
+                            return true
+                        }
+                    });
+                    if (!itemExist) {
+                        cart.push(addToCart);
+                    }
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                }
+                Count()
+                
+            })
+        }
+
+    </script>
+</body>
+
+</html>

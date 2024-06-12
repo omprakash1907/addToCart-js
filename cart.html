@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop-Nest</title>
+    <!-- fontAwsome -->
+    <!-- <link rel="stylesheet" href="assets/css/all.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font -->
+    <link rel="stylesheet" href="assets/webfont/stylesheet.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- boostrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+</head>
+
+<body onload="userinfo()">
+    <header id="header" class="py-3">
+
+    </header>
+    <section class="breadcrumb pb-3 " style="border-bottom: 1px solid var(--grey-color);">
+        <div class="container">
+            <ul class="p-0 m-0 ">
+                <li class="d-inline-block ">
+                    <a href="index.html" class="active-color fw-bold me-2">
+                        <i class="fa-solid fa-house-chimney"></i> Home >
+                    </a>
+                </li>
+                <li class="d-inline-block fw-bold grey-color">Cart</li>
+            </ul>
+        </div>
+    </section>
+    <section class="product container h-50 ">
+        <div id="p-data" class="d-flex align-items-center  justify-content-between flex-wrap col-12 ">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col" class="fs-4  ">Product</th>
+                        <th scope="col" class="fs-4 text-center ">Price</th>
+                        <th scope="col" class="fs-4 text-center ">Quatity</th>
+                        <th scope="col" class="fs-4 text-center "> SubTotal</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider " id="cData">
+
+                </tbody>
+            </table>
+            <div class="w-100 p-3 d-flex justify-content-between align-items-center " style="border: 3px solid black;">
+                <a href="shop.html" class="btn bg-color text-white fw-semibold">SubTotal<i
+                        class="fa-solid fa-arrow-right" style="font-size: 12px;"></i></a>
+                <div>
+                    <span class="fs-3">$</span>
+                    <span id="total" class="px-2 fs-3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        function userinfo() {
+            const cart = JSON.parse(localStorage.getItem("cart"));
+            let cartData = ""
+
+            var totalPrice = 0;
+
+            for (var i = 0; i < cart.length; i++) {
+                totalPrice += (cart[i].price * cart[i].qty)
+
+                cartData += `<tr>
+                    <td onclick="deleteData(${i})" style="cursor:pointer;"><a href="#" class="fs-4 "><i class="fa-solid fa-trash-arrow-up text-danger  "></i</a></td>
+                        <td><img src="${cart[i].image}" width="90px"></td>
+                    <td class="active-color fw-bold ">${cart[i].name}</td>
+                    <td class="primary-color fw-bold text-center">${cart[i].price}</td>
+                    <td class="position-relative d-flex justify-content-center "><ul
+                            class="qty-action bg-white d-flex position-absolute overflow-hidden p-0 align-items-center ">
+                            <li onclick="minusData(${i})"  style="cursor:pointer;">
+                                <a href="#" ><i class="fa-solid fa-minus active-color"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="active-color fw-bold ">${cart[i].qty}</a>
+                            </li>
+                            <li onclick="plusData(${i})">
+                                <a href="#" ><i class="fa-solid fa-plus active-color"></i></a>
+                            </li>
+                        </ul></td>
+                    <td class="fw-bold primary-color text-center "><span class="me-1">$</span>${cart[i].qty * cart[i].price}</td>
+                    </tr>`
+
+            }
+            document.getElementById('cData').innerHTML = cartData;
+            document.getElementById('total').innerHTML = totalPrice;
+        }
+        userinfo()
+
+
+    </script>
+</body>
+
+</html>
